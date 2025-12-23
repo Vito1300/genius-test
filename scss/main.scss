@@ -1,64 +1,17 @@
-/* poppins-300 - latin */
-@font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 300;
-	src: url('../fonts/poppins-v24-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* poppins-regular - latin */
-@font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 400;
-	src: url('../fonts/poppins-v24-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* poppins-600 - latin */
-@font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 600;
-	src: url('../fonts/poppins-v24-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* poppins-900 - latin */
-@font-face {
-	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 900;
-	src: url('../fonts/poppins-v24-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
+@use './utils/variables';
+@use './base';
+@use './utils/fonts';
+@use './utils/utils';
+@use './components/buttons';
+@use './components/links';
+@use './components/header';
+@use './components/hero-section';
 
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-}
+// @use './utils/mixins' as *;
+@use './utils/mixins';
 
-:root {
-	--color-brand-light: #819b57;
-	--color-brand-dark: #465929;
-	--color-primary-light: #faf4ea;
-	--color-primary-dark: #31261a;
-	--color-brand-lighter: #cfcfbc;
-	--color-secondary-dark: #a28268;
-}
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.hidden {
-	position: absolute;
-	left: -10000px;
-	top: auto;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
+.circle {
+	@include mixins.circle(100px, 10230px, transparent);
 }
 
 .section {
@@ -83,80 +36,12 @@ body {
 	padding: 0;
 }
 
-header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	padding-top: 32px;
+.header-item:last-child {
+	margin-right: 0;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	margin-top: 0;
-}
-
-a {
-	display: inline-block;
-}
-
-address {
-	font-style: normal;
-}
-
-.button {
-	padding: 16px 32px;
-	color: var(--color-primary-light);
-	background-color: var(--color-brand-light);
-	border: 2px solid var(--color-brand-light);
-	border-radius: 8px;
-	cursor: pointer;
-	font-weight: 600;
-}
-
 .button:hover {
 	color: var(--color-brand-light);
 	background-color: transparent;
-}
-
-.link {
-	color: var(--color-primary-light);
-	text-decoration: none;
-	transition: color 0.2s;
-}
-
-.link:hover {
-	color: var(--color-brand-light);
-}
-
-.header-container {
-	display: flex;
-	align-items: center;
-	gap: 40px;
-}
-
-.header-nav {
-	display: flex;
-	align-items: center;
-	flex-grow: 1;
-	gap: 40px;
-}
-
-.header-menu {
-	display: flex;
-	gap: 64px;
-	flex-grow: 1;
-	justify-content: center;
-}
-
-.header-item:last-child {
-	margin-right: 0;
 }
 
 .hero-section {
@@ -167,26 +52,12 @@ address {
 			rgba(18, 18, 17, 0.6) 58.46%,
 			rgba(18, 18, 17, 0) 90.36%
 		),
-		url('./images/hero-bg.png');
+		url('../images/hero-bg.png');
 	background-repeat: no-repeat;
 	background-position: center top;
 	background-size: cover;
 	background-attachment: fixed;
 	/* background: url('./images/hero-bg.png') no-repeat; */
-}
-
-.hero-title {
-	margin-bottom: 0px;
-	color: var(--color-primary-light);
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 4px;
-	font-size: 128px;
-}
-
-.advantages-section {
-	padding: 16px 0;
-	background-color: var(--color-brand-light);
 }
 
 .advantages-item {
@@ -209,10 +80,6 @@ address {
 
 .section-title.centered {
 	text-align: center;
-}
-
-.hero-title .accent {
-	color: var(--color-brand-light);
 }
 
 .section-title .accent {
